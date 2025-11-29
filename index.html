@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      line-height: 15px;
+      color: hsl(223, 31%, 20%);
+    }
+
+    .attribution a {
+      color: hsl(6, 63%, 50%);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h3>calc</h3>
+    <div class="theme">
+      <h6>THEME</h6>
+      <div class="toggle">
+        <div class="togglenum">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+        <div class="toggleradio">
+          <input type="radio" name="theme" id="theme1" checked>
+          <input type="radio" name="theme" id="theme2">
+          <input type="radio" name="theme" id="theme3">
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <input type="text" placeholder="_ _" autocomplete="off" maxlength="25" id="inputDisplay">
+    <section class="Allkeys" id="btns">
+      <button id="btn7" onclick="updateInDisplay('7')">7</button>
+      <button id="btn8" onclick="updateInDisplay('8')">8</button>
+      <button id="btn9" onclick="updateInDisplay('9')">9</button>
+      <button id="btndel" onclick="deleteInDisplay()">DEL</button>
+      <button id="btn4" onclick="updateInDisplay('4')">4</button>
+      <button id="btn5" onclick="updateInDisplay('5')">5</button>
+      <button id="btn6" onclick="updateInDisplay('6')">6</button>
+      <button id="btnplus" onclick="updateInDisplay('+')">+</button>
+      <button id="btn1"onclick="updateInDisplay('1')">1</button>
+      <button id="btn2" onclick="updateInDisplay('2')">2</button>
+      <button id="btn3" onclick="updateInDisplay('3')">3</button>
+      <button id="btnminus" onclick="updateInDisplay('-')">-</button>
+      <button id="btndot" onclick="updateInDisplay('.')">.</button>
+      <button id="btn0" onclick="updateInDisplay('0')">0</button>
+      <button id="btndivd" onclick="updateInDisplay('/')">/</button>
+      <button id="btnmulti" onclick="updateInDisplay('*')">X</button>
+      <button id="btnreset" onclick="clearDisplay()">RESET</button>
+      <button id="btnequls" onclick="calculate()">=</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="attribution">
+      <p style="color: hsl(223, 31%, 20%); font-size: 0.9rem;">press "t"</p>
+      <br>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. <br>
+      Coded by <a href="#">Sunag Arigala</a>.
+      
+      <br>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+
+</html>

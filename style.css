@@ -1,75 +1,4 @@
-# Calculator-app
-HTML-CSS-  Vanilla JavaScript
-# Frontend Mentor - Calculator app solution
-
-This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
-## Table of contents
-
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-- [Author](#author)
-
-
-### The challenge
-
-Users should be able to:
-
-- See the size of the elements adjust based on their device's screen size
-- Perform mathmatical operations like addition, subtraction, multiplication, and division
-- Adjust the color theme based on their preference
-- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
-
-### Screenshot
-
-![](./screenshots/Screenshot%202025-11-29%20at%2018-25-09%20Frontend%20Mentor%20Calculator%20app.png)
-![](./screenshots/Screenshot%202025-11-29%20at%2018-25-18%20Frontend%20Mentor%20Calculator%20app.png)
-![](./screenshots/Screenshot%202025-11-29%20at%2018-25-27%20Frontend%20Mentor%20Calculator%20app.png)
-
-![](./screenshots/Screenshot%202025-11-29%20at%2018-26-19%20Frontend%20Mentor%20Calculator%20app.png)
-![](./screenshots/Screenshot%202025-11-29%20at%2018-26-27%20Frontend%20Mentor%20Calculator%20app.png)
-![](./screenshots/Screenshot%202025-11-29%20at%2018-26-36%20Frontend%20Mentor%20Calculator%20app.png)
-
-### Links
-
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-### Built with
-
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-
-### What I learned
-
-
-```html
-<header>
-    <h3>calc</h3>
-    <div class="theme">
-      <h6>THEME</h6>
-      <div class="toggle">
-        <div class="togglenum">
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-        </div>
-        <div class="toggleradio">
-          <input type="radio" name="theme" id="theme1" checked>
-          <input type="radio" name="theme" id="theme2">
-          <input type="radio" name="theme" id="theme3">
-        </div>
-      </div>
-    </div>
-  </header>
-  
-```
-```css
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 :root {
   /* Theme 01 */
   /* background */
@@ -217,41 +146,236 @@ Users should be able to:
   --hovdelres:var(--ht13);
   --hovbtn:var(--ht113);
 }
-```
-```js
-const radios = document.querySelectorAll('input[name="theme"]');
-const body = document.body;
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: var(--font-w);
+  font-family: "League Spartan", sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--main-bg);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25%;
+}
+header h3 {
+  color: var(--text);
+}
+.theme {
+  display: flex;
+  gap: 0.6rem;
+}
+.toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.theme h6 {
+  color: var(--text);
+  align-self: end;
+  font-size: 0.6rem;
+}
+.togglenum {
+  letter-spacing: 0.3rem;
+  font-size: 0.5rem;
+  text-align: center;
+  color: var(--text);
+}
+.toggleradio {
+  align-items: center;
+  background-color: var(--screen-bg);
+  padding: 0.2rem 0.3rem;
+  display: flex;
+  border-radius: 50px;
+  gap: 0.3rem;
+}
 
-window.addEventListener("DOMContentLoaded", () => {
-    body.classList.add("theme-1");
-});
+.toggleradio input[type="radio"] {
+  appearance: none;
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.toggleradio input[type="radio"]:checked{
+  background-color: var(--equal-bg);
+}
+/* .toggleradio input[type="radio"]:checked:hover{
+  cursor: pointer;
+  background-color: rgba(251, 129, 116, 0.863);
+} */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 25%;
+}
+main input {
+  text-align: end;
+  height: 4rem;
+  background-color: var(--screen-bg);
+  border: none;
+  border-radius: 10px;
+  padding: 0 1rem;
+  font-size: 2rem;
+  color: var(--text);
+}
+main input:focus {
+  outline: none;
+}
+main input::placeholder {
+  text-align: end;
+}
+.Allkeys {
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  background-color: var(--keypad-bg);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.Allkeys button {
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: var(--key-bg);
+  box-shadow: 0 3px 0 0 var(--key-shadow);
+  color: var(--del-shadow);
+  cursor: pointer;
+}
+.Allkeys button:hover {
+  background-color: var(--hovbtn);
+}
+#btnreset {
+  grid-column: 1 / 3;
+}
+#btnequls {
+  grid-column: 3 / 5;
+  color: var(--text);
+  background-color: var(--equal-bg);
+  box-shadow: 0 3px 0 0 var(--equal-shadow);
+}
+#btnequls:hover {
+  background-color: var(--hovereq);
+}
+#btndel,
+#btnreset {
+  background-color: var(--del-bg);
+  box-shadow: 0 3px 0 0 var(--del-shadow);
+  color: var(--White);
+}
+#btndel:hover,
+#btnreset:hover {
+  background-color: var(--hovdelres);
+}
 
-//mouse or click
+@media (max-width: 400px) {
 
-radios.forEach(r => {
-   r.addEventListener("change", () => {
-       body.classList.remove("theme-1","theme-2","theme-3");
-       if(r.id === "theme1") body.classList.add("theme-1");
-       if(r.id === "theme2") body.classList.add("theme-2");
-       if(r.id === "theme3") body.classList.add("theme-3");
-   });
-});
+  body {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
 
-//keyboard
+  header,
+  main {
+    width: 100%;
+  }
 
-const theme = ["theme-1","theme-2","theme-3"];
-let index = 0;
+  main input {
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
 
-document.addEventListener("keypress", (e) => {
-   if(e.key.toLowerCase() === "t"){
-    index = (index + 1) % theme.length;
-    body.classList.remove(...theme);
-    body.classList.add(theme[index]);
-    document.querySelector(`#theme${index + 1}`).checked = true;
-   }
-});
-```
+  .Allkeys {
+    gap: 0.6rem;
+    padding: 0.8rem;
+  }
 
-## Author
-- Frontend Mentor - [@911Sunag](https://www.frontendmentor.io/profile/911Sunag);
+  .Allkeys button {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .toggleradio input[type="radio"] {
+    height: 0.65rem;
+    width: 0.65rem;
+  }
+}
+@media (max-width: 400px) {
+
+  body {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  header,
+  main {
+    width: 100%;
+  }
+
+  main input {
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+
+  .Allkeys {
+    gap: 0.6rem;
+    padding: 0.8rem;
+  }
+
+  .Allkeys button {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .toggleradio input[type="radio"] {
+    height: 0.65rem;
+    width: 0.65rem;
+  }
+}
+@media (max-width: 600px) {
+
+  body {
+    padding: 1.5rem 1rem;
+    gap: 1.2rem;
+  }
+
+  header,
+  main {
+    width: 100%;
+  }
+
+  main input {
+    height: 4rem;
+    font-size: 1.8rem;
+  }
+
+  .Allkeys {
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+
+  .Allkeys button {
+    padding: 0.8rem;
+    font-size: 1.3rem;
+  }
+
+  #btnreset,
+  #btnequls {
+    font-size: 1.2rem;
+  }
+}
